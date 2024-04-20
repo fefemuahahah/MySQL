@@ -44,6 +44,9 @@ data_partida date,
 data_chegada_prev date,
 hora_partida time,
 hora_chegada_prev time,
-cod_aeronave varchar(20) not null,
+cod_aeronave int not null,
 cia_aerea int not null,
-primary key(id_voo, assento))
+primary key(id_voo, assento),
+constraint cia_voos foreign key (cia_aerea)references cias_aereas(id_cia),
+constraint aeronavets foreign key(cod_aeronave)references aeronave(cod_aeronave));
+
